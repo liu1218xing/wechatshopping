@@ -1,6 +1,6 @@
 // pages/home/home.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js');
-
+const config =require('../../config')
 Page({
 
   /**
@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     qcloud.request({
-      url: 'https://imccw4xl.qcloud.la/weapp/product',
+      url: config.service.productList,
       success: resulut=> {
         let data = resulut.data
         console.log(data)
