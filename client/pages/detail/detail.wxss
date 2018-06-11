@@ -1,0 +1,24 @@
+.product-card {
+  padding-bottom: 15rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+
+.product-image {
+  display: block; 
+  margin: 0 auto; 
+  width: 370rpx;
+  height: 370rpx;
+}
+.product-name{
+  font-size: 46rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+   
+}
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 29rpx;
+}
