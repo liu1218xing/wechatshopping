@@ -1,13 +1,59 @@
 // pages/order/order.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: null,
+    orderList: [
+      {
+        id: 0,
+        list: [{
+          count: 1,
+          image: '填入任意你之前上传到腾讯云的图片链接',
+          name: '商品1',
+          price: 50.5,
+        }]
+      },
+      {
+        id: 1,
+        list: [{
+          count: 1,
+          image: '填入任意你之前上传到腾讯云的图片链接',
+          name: '商品1',
+          price: 50.5,
+        },
+        {
+          count: 1,
+          image: '填入任意你之前上传到腾讯云的图片链接',
+          name: '商品2',
+          price: 50.5,
+        }
+        ]
+      },
+      {
+        id: 2,
+        list: [{
+          count: 1,
+          image: '填入任意你之前上传到腾讯云的图片链接',
+          name: '商品2',
+          price: 50.5,
+        }]
+      }
+    ], // 订单列表
   },
-
+  onTapLogin(){
+    app.login({success:({userInfo})=>{
+      this.setData({
+        userInfo
+      })
+    }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,7 +72,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    app.checkSession({
+      success:({userInfo})=>{
+        this.setData({
+          userInfo
+        })
+      }
+    })
   },
 
   /**

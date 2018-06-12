@@ -1,1 +1,23 @@
 /* pages/order/order.wxss */
+.order-empty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 431rpx;
+  background: #FFFFFF;
+  margin: 37rpx 27rpx;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.2);
+  border-radius: 13rpx;
+}
+.empty-image{
+   opacity: 0.4;
+  margin-bottom: 29rpx;
+  height: 90rpx;
+  width: 90rpx;
+}
+.empty-text{
+  font-size: 28rpx;
+  height: 40rpx;
+  color: rgba(139, 139, 139, 1);
+}

@@ -37,20 +37,6 @@ onTapKf(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    app.checkSession({
-      success:({userInfo})=>{
-      console.log(userInfo);
-      this.setData({
-        userInfo:userInfo
-      })
-    },
-      fail:()=>{
-
-      }
-    })
-    
-   
   },
 
   /**
@@ -64,7 +50,16 @@ onTapKf(){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    app.checkSession({
+      success: ({ userInfo }) => {
+        console.log(userInfo);
+        this.setData({
+          userInfo: userInfo
+        })
+      },
+      fail: () => {
+      }
+    })
   },
 
   /**

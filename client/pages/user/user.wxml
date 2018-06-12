@@ -9,7 +9,7 @@
     </view>
   </view>
  
-  <button class='unlogin-btn' open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button class="unlogin-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
 </view>
 <view class="user-card"  wx:else >
    <view class='user-info'>
