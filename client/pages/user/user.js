@@ -1,16 +1,26 @@
 // pages/user/user.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js');
+const config = require('../../config')
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{
-      nickName:"优达学院",
-      avatarUrl:"",  //头像URL
-
-    }, 
+    userInfo: null,
   },
+ 
+  onTapLogin(){
+    app.login({
+      success: ({ userInfo})=>{
+        this.setData({
+          userInfo
+        })
+      }
+    })
+  },
+ 
 onTapAddress(){
   wx.showToast({
     icon:'none',
@@ -27,8 +37,20 @@ onTapKf(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.data.userInfo)
+
+    app.checkSession({
+      success:({userInfo})=>{
+      console.log(userInfo);
+      this.setData({
+        userInfo:userInfo
+      })
+    },
+      fail:()=>{
+
+      }
+    })
     
+   
   },
 
   /**
