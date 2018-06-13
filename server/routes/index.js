@@ -35,4 +35,9 @@ router.post('/message', controllers.message.post)
 // 获取商品列表
 router.get('/product', controllers.product.list)
 router.get('/product/:id', controllers.product.detail)
+
+// 创建订单
+router.post('/order', validationMiddleware, controllers.order.add)
+// 订单查询
+router.get('/order', validationMiddleware, controllers.order.list)
 module.exports = router

@@ -1,4 +1,79 @@
 /* pages/order/order.wxss */
+.order-head{
+  display: flex;
+ padding: 26rpx 29rpx 14rpx;
+ align-items: center;
+}
+.order-head-line{
+  height: 34rpx;
+  width: 21rpx;
+}
+.order-head-text{
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  line-height: 33rpx;
+  color: rgba(52, 55, 61, 0.8);
+}
+.order-block{
+  margin: 0 26rpx 26rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 13rpx;
+}
+
+.order-card{
+  display: flex;  
+   align-items: center; 
+   margin-left: 19rpx;
+  margin-right: 23rpx;
+  height: 200rpx;
+  border-bottom: 1px solid rgba(115, 115,115, 0.2)
+}
+.order-block :last-child{
+  border-bottom: none;
+}
+.order-image{
+  flex-shrink:0; 
+  height:160rpx;
+  width: 160rpx;
+}
+.order-info{
+  flex: 1;
+  padding: 27rpx;
+  font-size: 28rpx;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 40rpx;
+}
+.order-name{
+  color: rgba(29, 29, 38, 0.8);
+}
+.order-price{
+  margin-top: 12rpx;
+  font-weight: bold;
+}
+.order-opr{
+  flex-shrink: 0;
+  height: 100%;
+  margin-left: 59rpx;
+  margin-top: 34rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.order-btn{
+  width: 100rpx;
+  height: 52rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  background: #F5E069;
+  line-height: 52rpx;
+}
+.order-count{
+  margin: 49rpx ;
+  line-height: 40rpx;
+  font-weight: bold;
+  text-align: right;
+}
 .order-empty{
   display: flex;
   flex-direction: column;

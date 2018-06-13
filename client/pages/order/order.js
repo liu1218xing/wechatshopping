@@ -9,48 +9,32 @@ Page({
    */
   data: {
     userInfo: null,
-    orderList: [
-      {
-        id: 0,
-        list: [{
-          count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
-          name: '商品1',
-          price: 50.5,
-        }]
+    orderList: [], // 订单列表
+  },
+  getOrder() {
+    
+    qcloud.request({
+      url: config.service.orderList,
+      login: true,
+      success:result=>{
+        console.log("success")
+        let data = result.data
+        console.log(result.data.data)
+        this.setData({
+          orderList: data.data
+        })
       },
-      {
-        id: 1,
-        list: [{
-          count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
-          name: '商品1',
-          price: 50.5,
-        },
-        {
-          count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
-          name: '商品2',
-          price: 50.5,
-        }
-        ]
-      },
-      {
-        id: 2,
-        list: [{
-          count: 1,
-          image: '填入任意你之前上传到腾讯云的图片链接',
-          name: '商品2',
-          price: 50.5,
-        }]
+      fail:result=>{
+        console.log(result)
       }
-    ], // 订单列表
+    })
   },
   onTapLogin(){
     app.login({success:({userInfo})=>{
       this.setData({
         userInfo
       })
+      this.getOrder()
     }
     })
   },
@@ -58,7 +42,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+ 
   },
 
   /**
@@ -77,6 +61,7 @@ Page({
         this.setData({
           userInfo
         })
+        this.getOrder()
       }
     })
   },

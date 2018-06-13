@@ -28,6 +28,10 @@ var config = {
         productDetail: `${host}/weapp/product/`,
         // 拉取用户信息
         user: `${host}/weapp/user`,
+        // 拉取用户 信息
+        addOrder: `${host}/weapp/order`,
+        // 拉取用户信息
+        orderList: `${host}/weapp/order`,
     }
 };
 

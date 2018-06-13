@@ -1,3 +1,4 @@
+
 <!--pages/order/order.wxml-->
 <image class="bg" src="/images/bg.png"></image>
 <view wx:if="{{!userInfo}}">
@@ -9,7 +10,7 @@
     </view>
   </view>
   <button class='unlogin-btn' open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
-
+ 
 </view>
 <view  wx:elif="{{orderList.length>0}}"> 
   <view class='order-head'>

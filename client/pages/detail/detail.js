@@ -9,6 +9,53 @@ Page({
   data: {
     product:{},
   },
+
+  buy(){
+    wx.showLoading({
+      title: '商品购买中...',
+    })
+
+    let product = Object.assign({
+      count:1
+    }, this.data.product)
+    console.log("product-detail")
+    console.log(product)
+    qcloud.request({
+      url:config.service.addOrder,
+      login:true,
+      method:'POST',
+      data:{
+        list:[product]
+      },
+      success:result=>{
+        wx.hideLoading()
+        let data = result.data
+        console.log('detail-buy-success')
+        console.log(data)
+        if(!data.code){
+          wx.showToast({
+            title: '商品购买成功',
+          })
+        }else{
+          console.log('detail-buy-error')
+          console.log(data)
+          wx.showToast({
+            icon:'none',
+            title: '商品购买失败',
+          })
+        }
+      },
+      fail:error=>{
+        console.log('detail-fail-error')
+        console.log(error)
+        wx.hideLoading()
+        wx.showToast({
+          
+          title: '商品购买失败',
+        })
+      }
+    })
+  },
   getProduct(id){
     wx.showLoading({
       title: '商品数据加载中...',
