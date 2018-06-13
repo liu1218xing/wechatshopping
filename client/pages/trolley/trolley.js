@@ -1,4 +1,7 @@
 // pages/trolley/trolley.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
+const app = getApp()
 Page({
 
   /**
@@ -21,11 +24,19 @@ Page({
       count: 3,
     }], // 购物车商品列表
     trolleyCheckMap: [undefined, true, undefined], // 购物车中选中的id哈希表
-    trolleyAccount: 45, // 购物车结算总价
-    isTrolleyEdit: false, // 购物车是否处于编辑状态
+    trolleyAccount: 0, // 购物车结算总价
+    isTrolleyEdit: true, // 购物车是否处于编辑状态
     isTrolleyTotalCheck: true, // 购物车中商品是否全选
   },
-
+  onTapLogin() {
+    app.login({
+      success: ({ userInfo }) => {
+        this.setData({
+          userInfo
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,7 +55,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    app.checkSession({
+      success:({userInfo})=>{
+        this.setData({
+          userInfo
+        })
+      }
+    })
   },
 
   /**

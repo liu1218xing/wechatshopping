@@ -1,6 +1,6 @@
 /* pages/order/order.wxss */
 .order-head{
-  display: flex;
+display: flex;
  padding: 26rpx 29rpx 14rpx;
  align-items: center;
 }

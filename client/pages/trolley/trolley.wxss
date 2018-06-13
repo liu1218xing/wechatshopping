@@ -1,1 +1,158 @@
 /* pages/trolley/trolley.wxss */
+.trolley-empty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 37rpx 27rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.2);
+  border-radius: 13rpx;
+  height: 431rpx;
+}
+.empty-image{
+  margin-bottom: 29rpx;
+  height: 90rpx;
+  width: 90rpx;
+  opacity: 0.4;
+}
+.empty-text{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: rgba(139, 139, 139, 0.8);
+}
+.trolley-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24rpx;
+  margin-top:  20rpx;
+  margin-bottom: 20rpx;
+}
+.trolley-total{
+  display: flex;
+  align-items: center;
+  padding-left: 35rpx;
+  font-size: 32rpx;
+}
+.trolley-check{
+  height: 16rpx;
+  width: 22rpx;
+}
+.trolley-check-wrapper{
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36rpx;
+  width: 36rpx;
+  border-radius: 50%;
+  background: #ECECEE;
+}
+.trolley-total-text,.trolley-edit{
+  margin-left: 18rpx;
+  margin-right: 33rpx;
+  color:rgb(52, 55, 61, 0.8);
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+.trolley-check-wrapper.white{
+  background: #FFFFFF;
+}
+.trolley-check-wrapper.check {
+ background: #F5E069;
+}
+.product-card{
+  display: flex;
+  align-items: center;
+  margin: 0 26rpx 26rpx;
+  padding-left: 32rpx; 
+  height: 200rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 13rpx;
+}
+.product-info{
+  flex: 1;
+  height: 100%;
+  padding: 28rpx 28rpx 0 36rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+   line-height: 40rpx;
+}
+.product-img{
+  flex-shrink: 0;
+  height: 160rpx;
+  width: 160rpx;
+  margin-left: 31rpx;
+}
+.product-name{
+  color: rgba(29, 29, 38, 0.8);
+}
+.product-price{
+  margin-top: 3rpx;
+}
+.product-count{
+  text-align: right;
+}
+.product-count-edit{
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.count-minus,
+.count-add {
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 900;
+  border: 3rpx solid #F6E474;
+  border-radius: 50%;
+}
+.count-now{
+  margin: 0 18rpx;
+}
+.trolley-account{
+
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 24rpx;
+  height: 100rpx;
+  background: #FFFFFF;
+}
+.trolley-account-text{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 29rpx;
+  color: rgba(52, 55, 61, 0.8);
+  font-size: 24rpx;
+  line-height: 33rpx;
+}
+.trolley-account-now{
+  margin-left: 12rpx;
+  font-size: 34rpx;
+  line-height: 48rpx;
+  color: #000;
+}
+.pay-btn{
+  width: 250rpx;
+  text-align: center;
+  height: 100%;
+  background: #F5E069;
+  line-height: 100rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  color: rgba(52, 55, 61, 0.5);
+}
+.pay-btn.canpay {
+  color: #34373D;
+}
