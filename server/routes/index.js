@@ -40,4 +40,11 @@ router.get('/product/:id', controllers.product.detail)
 router.post('/order', validationMiddleware, controllers.order.add)
 // 订单查询
 router.get('/order', validationMiddleware, controllers.order.list)
+
+// 商品添加购买订单
+router.put('/trolley', validationMiddleware, controllers.trolley.add)
+// 商品添加购买订单
+router.get('/trolley', validationMiddleware, controllers.trolley.list)
+// 更新购物车订单
+router.post('/trolley', validationMiddleware, controllers.trolley.update)
 module.exports = router

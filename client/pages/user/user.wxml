@@ -27,5 +27,5 @@
     <image class='option-arrow' src='/images/grey-arrow.png'></image>
   </view>
   </view>
-  
+  <view class='user-scan' bindtap='onTapScan'>扫码</view>
 </view>

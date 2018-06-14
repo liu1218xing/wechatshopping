@@ -9,7 +9,41 @@ Page({
   data: {
     product:{},
   },
-
+  addToTrolley(){
+    wx.showLoading({
+      title: '正在添加到购物车中...',
+    })
+    qcloud.request({
+      url:config.service.addTrolley,
+      login:true,
+      method:'PUT',
+      data: {
+        id: this.data.product.id
+      },
+      success:result=>{
+        let data =result.data 
+        wx.hideLoading()
+        if(!data.code){
+          wx.showToast({
+            title: '已添加到购物车中',
+          })
+        }else{
+          wx.showToast({
+            icon: 'none',
+            title: '添加到购物车失败1',
+          })
+        }
+      },
+      fail:error=>{
+        console.log(error)
+        wx.hideLoading()
+        wx.showToast({
+          icon:'none',
+          title: '添加到购物车失败2',
+        })
+      }
+    })
+  },
   buy(){
     wx.showLoading({
       title: '商品购买中...',

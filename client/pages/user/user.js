@@ -10,7 +10,16 @@ Page({
   data: {
     userInfo: null,
   },
- 
+  onTapScan(){
+  wx.scanCode({
+    success:(result)=>{
+      console.log(result)
+    },
+    fail:(error)=>{
+      console.log(error);
+    }
+  })
+  },
   onTapLogin(){
     app.login({
       success: ({ userInfo})=>{
