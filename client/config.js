@@ -35,7 +35,7 @@ var config = {
         // 添加商品订单到购物车中
         addTrolley: `${host}/weapp/trolley`,
         // 添加商品订单到购物车中
-        TrolleyList: `${host}/weapp/trolley`,
+        trolleyList: `${host}/weapp/trolley`,
         // 添加商品订单到购物车中
         updateTrolley: `${host}/weapp/trolley`,
     }

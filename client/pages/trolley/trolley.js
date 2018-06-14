@@ -79,7 +79,7 @@ Page({
   },
   getRolleyList(){
     qcloud.request({
-      url: config.service.TrolleyList,
+      url: config.service.trolleyList,
       login: true,
       success:result=>{
         let data = result.data
@@ -123,11 +123,10 @@ Page({
 
     if (isTrolleyEdit) {
       this.updateTrolley()
-    } else {
-      this.setData({
-        isTrolleyEdit: !isTrolleyEdit
-      })
-    }
+    } 
+    this.setData({
+      isTrolleyEdit: !isTrolleyEdit
+    })
    
   },
   adjustTrolleyProductCount(event){
@@ -189,6 +188,53 @@ Page({
     }
     
   })
+  },
+  /**
+   * 结算
+   */
+  onTapPay(){
+    let trolleyList = this.data.trolleyList
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let trolleyAccount = this.data.trolleyAccount
+    if (!this.data.trolleyAccount) return
+    wx.showLoading({
+      title: '结算中...',
+    })
+    let needToPayProductList = trolleyList.filter(product=>{
+      return !!trolleyCheckMap[product.id]
+    })
+    qcloud.request({
+      url: config.service.addOrder,
+      login:true,
+      method:'POST',
+      data:{
+        list: needToPayProductList
+      },
+      success:result=>{
+        wx.hideLoading()
+        let data = result.data
+        if(!data.code){
+          wx.showToast({
+            title: '结算成功',
+          })
+          this.getRolleyList()
+        }else{
+          wx.showToast({
+            icon:'none',
+            title: '结算失败',
+          })
+        }
+      },
+      fail:error=>{
+        console.log(error)
+        wx.hideLoading()
+        wx.showToast({
+          icon: 'none',
+          title: '结算失败',
+        })
+      }
+    })
+    
   },
   /**
    * 生命周期函数--监听页面加载
